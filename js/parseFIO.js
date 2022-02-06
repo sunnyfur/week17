@@ -1,27 +1,16 @@
 const parseFIO = (e) => {
-    let fio = e.target.value.match(/[а-яА-Яa-zA-Z]{1,}/g);
-    let name = "";
-    let surname = "";
-    let secondname = "";
-    if (e.target.value) {
+    const fio = e.target.value.match(/[а-яА-Яa-zA-Z]{1,}/g);
 
-        const toUpperFirst = (str) => {
-            let nStr = "";
-            if (str) {
-                nStr = str[0].toUpperCase();
-                if (str.length >= 2) nStr += str.slice(1).toLowerCase();
-            }
-            return nStr;
-        }
+    const toUpperFirst = (str) => {
 
-        name = toUpperFirst(fio[1]);
-        surname = toUpperFirst(fio[0]);
-        secondname = toUpperFirst(fio[2]);
+        return str ? str[0].toUpperCase() + str.slice(1).toLowerCase() : "";
+
     }
 
-    document.querySelector("#idName").value = name;
-    document.querySelector("#idSurname").value = surname;
-    document.querySelector("#idSecondName").value = secondname;
+
+    document.querySelector("#idName").value = fio[1] ? toUpperFirst(fio[1]) : "";
+    document.querySelector("#idSurname").value = fio[0] ? toUpperFirst(fio[0]) : "";
+    document.querySelector("#idSecondName").value = fio[2] ? toUpperFirst(fio[2]) : "";
 
 };
 document.querySelector("#idFIO").addEventListener("keyup", parseFIO);

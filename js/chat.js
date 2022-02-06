@@ -17,7 +17,7 @@ const addDomComment = (comm) => {
     pDate.dataset.date = comm.date;
     pDate.innerHTML = formatDate(pDate.dataset.date);
 
-    const pComment = document.createElement("p");
+    const pComment = document.createElement("p"); //pre
     pComment.classList.add("comment__text");
 
     pComment.innerHTML = comm.text.replace(/\n/g, "</br>");

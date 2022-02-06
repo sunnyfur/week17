@@ -9,16 +9,20 @@ const randCopy = (e) => {
 
     for (let i = 0; i < len; i++) {
         arr.push(Math.round(Math.random() * (maxVal - minVal)) + minVal);
-        if (i == 0) {
-            min = arr[0];
-            max = arr[0];
-        } else {
-            if (arr[i] < min) min = arr[i];
-            if (arr[i] > max) max = arr[i];
-        }
+        // if (i == 0) {
+        //     min = arr[0];
+        //     max = arr[0];
+        // } else {
+        //     if (arr[i] < min) min = arr[i];
+        //     if (arr[i] > max) max = arr[i];
+        // }
         sum += arr[i];
         mul *= arr[i];
     }
+
+    min = Math.min(...arr);
+    max = Math.max(...arr);
+
 
     const aver = sum / arr.length;
     let res = `Сгенерировали: ${arr.join(" ")} </br>
